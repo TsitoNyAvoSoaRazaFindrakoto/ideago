@@ -19,10 +19,12 @@ const NavBar = async () => {
                 <span>Create</span>
               </Link>
 
-              <button onClick={async () => {
-								"use server";
-								await signOut({redirectTo : "/"});
-							}}>
+              <button
+                onClick={async () => {
+                  "use server";
+                  await signOut({ redirectTo: "/" });
+                }}
+              >
                 <span>Logout</span>
               </button>
 
@@ -31,10 +33,12 @@ const NavBar = async () => {
               </Link>
             </>
           ) : (
-							<button onClick={async () => {
-								"use server";
-								await signIn("github")
-							}}>
+            <button
+              onClick={async () => {
+                "use server";
+                await signIn("github");
+              }}
+            >
               <span>Login</span>
             </button>
           )}
