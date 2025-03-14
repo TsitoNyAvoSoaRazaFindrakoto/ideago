@@ -8,7 +8,7 @@ const Home = async ({
   const query = (await searchParams).query;
   return (
     <>
-      <section className="pink_container">
+      <section className="pink_container bg-primary">
         <h1 className="heading">
           Pitch your startup, <br /> connect with entrepreneurs
         </h1>
