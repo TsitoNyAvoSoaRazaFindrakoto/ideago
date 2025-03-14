@@ -5,7 +5,18 @@ const Home = async ({
 }: {
   searchParams: Promise<{ query?: string }>;
 }) => {
-  const query = (await searchParams).query;
+	const query = (await searchParams).query;
+	
+	const posts = [{
+		_createdAt: 'Yesterday',
+		views: 55,
+		author: { _id: 1 },
+		_id : 1,
+		description: "This is a description",
+		image: 'https://unsplash.com/photos/person-holding-light-bulb-fIq0tET6llw',
+		category: 'Robots',
+		title : 'Robotics Startup',
+	}]
   return (
     <>
       <section className="pink_container bg-primary">
@@ -17,7 +28,17 @@ const Home = async ({
           Competition.
         </p>
 				<SearchForm query={query} />
-      </section>
+			</section>
+			
+			<section className="section_container">
+				<p className="text-30-semibold">
+					{query ? `Search results for "${query}"` : 'All Startups'}
+					
+					<ul className="mt-7 card_grid">
+
+					</ul>
+				</p>
+			</section>
     </>
   );
 };
