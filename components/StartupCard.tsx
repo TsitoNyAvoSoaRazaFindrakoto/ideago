@@ -4,6 +4,7 @@ import React from "react";
 import StartupCardType from "@/types/post";
 import Link from "next/link";
 import Image from "next/image";
+import { Button } from "./ui/button";
 
 const StartupCard = ({ post }: { post: StartupCardType }) => {
   const {
@@ -54,6 +55,12 @@ const StartupCard = ({ post }: { post: StartupCardType }) => {
         className="startup-card_img"
       />
       </Link>
+			<div className="flex-between gap-3 mt-5">
+				<Link href={`/?query=${category.toLowerCase()}`}>{category}</Link>
+			<Button className="startup-card_btn" asChild>
+				<Link href={`/startup/${_id}`}>Details</Link>
+			</Button>
+			</div>
     </li>
   );
 };
