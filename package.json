@@ -9,19 +9,30 @@
     "lint": "next lint"
   },
   "packageManager": "pnpm@10.6.2",
-  "overrides": {
-    "react": "$react",
-    "react-dom": "$react-dom"
+  "pnpm": {
+    "pnpm": {
+      "peerDependencyRules": {
+        "allowAny": [
+          "react",
+          "react-dom"
+        ]
+      }
+    }
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.2",
+    "@sanity/image-url": "1",
+    "@sanity/vision": "3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.479.0",
     "next": "15.2.2",
     "next-auth": "5.0.0-beta.25",
+    "next-sanity": "9.9.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "sanity": "3",
+    "styled-components": "6",
     "tailwind-merge": "^3.0.2",
     "zod": "^3.24.2"
   },
