@@ -1,22 +1,27 @@
 import SearchForm from "@/components/SearchForm";
+import StartupCard from "@/components/StartupCard";
+import StartupCardType from "@/types/post";
 
 const Home = async ({
   searchParams,
 }: {
   searchParams: Promise<{ query?: string }>;
 }) => {
-	const query = (await searchParams).query;
-	
-	const posts = [{
-		_createdAt: 'Yesterday',
-		views: 55,
-		author: { _id: 1 },
-		_id : 1,
-		description: "This is a description",
-		image: 'https://unsplash.com/photos/person-holding-light-bulb-fIq0tET6llw',
-		category: 'Robots',
-		title : 'Robotics Startup',
-	}]
+  const query = (await searchParams).query;
+
+  const posts = [
+    {
+      _createdAt: new Date(),
+      views: 55,
+      author: { _id: 1, name: "Sarah" },
+      _id: 1,
+      description: "This is a description",
+      image:
+        "https://unsplash.com/photos/person-holding-light-bulb-fIq0tET6llw",
+      category: "Robots",
+      title: "Robotics Startup",
+    },
+  ];
   return (
     <>
       <section className="pink_container bg-primary">
@@ -27,18 +32,24 @@ const Home = async ({
           Submit Ideas, Vote on Pitches, and Get Ideas Noticed In Virtual
           Competition.
         </p>
-				<SearchForm query={query} />
-			</section>
-			
-			<section className="section_container">
-				<p className="text-30-semibold">
-					{query ? `Search results for "${query}"` : 'All Startups'}
-					
-					<ul className="mt-7 card_grid">
+        <SearchForm query={query} />
+      </section>
 
-					</ul>
-				</p>
-			</section>
+      <section className="section_container">
+        <p className="text-30-semibold">
+          {query ? `Search results for "${query}"` : "All Startups"}
+        </p>
+
+        <ul className="mt-7 card_grid">
+          {posts?.length > 0 ? (
+            posts.map((post: StartupCardType) => (
+              <StartupCard key={post._id} post={post} />
+            ))
+          ) : (
+            <p className="no-result">No startups found</p>
+          )}
+        </ul>
+      </section>
     </>
   );
 };
