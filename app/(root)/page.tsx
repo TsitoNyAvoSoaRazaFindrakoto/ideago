@@ -1,6 +1,7 @@
 import SearchForm from "@/components/SearchForm";
-import StartupCard, { StartupCardType } from "@/components/StartupCard";
+import StartupCard from "@/components/StartupCard";
 import { client } from "@/sanity/lib/client";
+import { SanityLive } from "@/sanity/lib/live";
 import { startups_query } from "@/sanity/lib/queries";
 
 const Home = async ({
@@ -37,7 +38,9 @@ const Home = async ({
             <p className="no-result">No startups found</p>
           )}
         </ul>
-      </section>
+			</section>
+			
+			<SanityLive/>
     </>
   );
 };
