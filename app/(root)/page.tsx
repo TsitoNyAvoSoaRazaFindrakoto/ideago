@@ -1,5 +1,7 @@
 import SearchForm from "@/components/SearchForm";
 import StartupCard from "@/components/StartupCard";
+import { client } from "@/sanity/lib/client";
+import { startups_query } from "@/sanity/lib/queries";
 import StartupCardType from "@/types/post";
 
 const Home = async ({
@@ -9,19 +11,9 @@ const Home = async ({
 }) => {
   const query = (await searchParams).query;
 
-  const posts = [
-    {
-      _createdAt: new Date(),
-      views: 55,
-      author: { _id: 1, name: "Sarah" },
-      _id: 1,
-      description: "This is a description",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ395qcYOPsd3cuhPPIzz871lLgqHr0Di0F5w&s",
-      category: "Robots",
-      title: "Robotics Startup",
-    },
-  ];
+	const posts = await client.fetch(startups_query);
+
+  console.log(JSON.stringify(posts, null, 2));
   return (
     <>
       <section className="pink_container bg-primary">
