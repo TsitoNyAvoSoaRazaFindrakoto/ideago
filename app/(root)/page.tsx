@@ -17,7 +17,7 @@ const Home = async ({
       _id: 1,
       description: "This is a description",
       image:
-        "https://unsplash.com/photos/person-holding-light-bulb-fIq0tET6llw",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ395qcYOPsd3cuhPPIzz871lLgqHr0Di0F5w&s",
       category: "Robots",
       title: "Robotics Startup",
     },
