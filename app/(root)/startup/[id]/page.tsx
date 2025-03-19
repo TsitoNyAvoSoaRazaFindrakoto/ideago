@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { client } from "@/sanity/lib/client";
-import { startup_query_by_id } from "@/sanity/lib/queries";
+import { startup_by_id_query } from "@/sanity/lib/queries";
 import { notFound } from "next/navigation";
 import { formatDate } from "@/lib/utils";
 import Link from "next/link";
@@ -18,7 +18,7 @@ const StartupDetails = async ({
   params: Promise<{ id: string }>;
 }) => {
   const id = (await params).id;
-  const post = await client.fetch(startup_query_by_id, { id });
+  const post = await client.fetch(startup_by_id_query, { id });
 
   if (!post) return notFound();
 
