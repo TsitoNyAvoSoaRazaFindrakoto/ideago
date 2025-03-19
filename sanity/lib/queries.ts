@@ -16,7 +16,7 @@ export const startups_query = defineQuery(
 }`
 );
 
-export const startup_query_by_id =
+export const startup_by_id_query =
   defineQuery(`*[_type=="startup" && _id == $id][0]{
     _id,
     title,
@@ -31,3 +31,9 @@ export const startup_query_by_id =
     image,
     pitch
 }`);
+
+export const startup_views_query = defineQuery(`
+	*[_type == "startup" && _id == $id][0]{
+		_id, views
+	}
+`);
