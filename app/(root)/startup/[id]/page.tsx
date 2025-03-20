@@ -26,7 +26,7 @@ const StartupDetails = async ({
   return (
     <>
       <section className="pink_container !min-h-[230px]">
-        <p className="t">{formatDate(post?._createdAt)}</p>
+        <p className="tag">{formatDate(post?._createdAt)}</p>
         <h1 className="heading">{post.title}</h1>
         <p className="sub-heading !max-w-5xl">{post.description}</p>
       </section>
