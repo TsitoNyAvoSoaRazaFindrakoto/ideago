@@ -15,7 +15,8 @@
     "peerDependencyRules": {
       "allowAny": [
         "react",
-        "react-dom"
+        "react-dom",
+        "next"
       ]
     },
     "onlyBuiltDependencies": [
