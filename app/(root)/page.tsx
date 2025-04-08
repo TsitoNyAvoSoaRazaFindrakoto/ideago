@@ -16,7 +16,6 @@ const Home = async ({
 
 	console.log(session?.id);
 	
-
   const { data: posts } = await sanityFetch({ query: startups_query, params });
   return (
     <>
