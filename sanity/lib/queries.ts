@@ -13,7 +13,7 @@ export const startups_query = defineQuery(
     description,
     category,
     image
-}`
+}`,
 );
 
 export const startup_by_id_query =
@@ -41,5 +41,27 @@ export const startup_views_query = defineQuery(`
 export const author_by_github_id_query = defineQuery(`
 	*[_type == "author" && id == $id][0]{
 		_id, id, name, username, email, image, bio
-	}	
+	}
 `);
+
+export const author_by_id_query = defineQuery(`
+	*[_type == "author" && _id == $id][0]{
+		_id, id, name, username, email, image, bio
+	}
+`);
+
+export const startups_by_author_query = defineQuery(
+  `*[_type=="startup" && author.ref = $id] | order(_createdAt desc) {
+    _id,
+    title,
+    slug,
+    _createdAt,
+    author -> {
+      _id, name, image, bio
+    },
+    views,
+    description,
+    category,
+    image
+}`,
+);

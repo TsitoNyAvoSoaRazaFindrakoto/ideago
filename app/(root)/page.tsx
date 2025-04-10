@@ -10,12 +10,10 @@ const Home = async ({
   searchParams: Promise<{ query?: string }>;
 }) => {
   const query = (await searchParams).query;
-	const params = { search: query || null };
-	
-	const session = await auth();
+  const params = { search: query || null };
 
-	console.log(session?.id);
-	
+  const session = await auth();
+
   const { data: posts } = await sanityFetch({ query: startups_query, params });
   return (
     <>
