@@ -29,7 +29,7 @@ const NavBar = async () => {
                 }}
               >
                 <span className="max-sm:hidden">Logout</span>
-                <LogOut className="size-6 sm:hiden text-red-500" />
+                <LogOut className="size-6 sm:hidden text-red-500" />
               </button>
 
               <Link href={`/user/${session?.user?.id}`}>
