@@ -72,9 +72,6 @@ const StartupDetails = async ({
         </div>
 
         <hr className="divider" />
-
-        {/* TODO:editor seleted startups */}
-
         <Suspense fallback={<Skeleton className="view_skeleton" />}>
           <View id={post._id} />
         </Suspense>
